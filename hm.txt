@@ -1,0 +1,22 @@
+SPF(Sender Policy Framework) 
+What is SPF?
+---It is an email authentication  method that helps prrevent email spoofing
++application - email systems
++authentication - when the  the recieving server checks the sender's ip address against the SPF record in the domain's DNS, the result should have an "SPF:PASS" tag in the email headers. If not it is not authenticated. This also proves authenticity
+-Examples - 1.SPF:FAIL. This indicates an unauthorized server sent the email.
+			2.SPF:NONE. This indicates the that the domain lacks an SPF record hence cannot verify the sender
+DKIM(Domain Keys Identified Mail)
+What is it?
+--it is an email authentication method that uses crptographic signatures for verification.
++authentication - A digital signature is added to the email header and checked for against a public key in the sender's DNS records. A "DKIM:PASS" tag is the results in the email hearder if authentic. If not it should be flagged as suspicious.
+-Examples - DKIM:Fail. Cryptographic signature does not match public key 
+		  - DKIM:None. There is no DKIM signature to verify
+DMARC(Domain-based Message Authentication, Reporting and Conformance)
+What is it?
+--An email authentication method that builds on SPF and DKIm
++authentication - It allows domain owners to specify policies that screen unauthenticated emails.There should be a DMARC:PASS tag in email headers to prove authenticity
+-Example - DMARC:FAIL. When the email fails SPF or DKIM checks and does not align with DMARC policies, it will get flaaged as suspicious
+		 - DMARC:NONE. When the sender's domain lacks in DMARC policy in DNS. 
+ -Phishing - Is a technique where by an attacker baits thier target with a malicious link to steal senstive data
+
+ Tool- MAILTESTER
